@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masab Shakoor - Portfolio</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+  position: fixed;
+  height: 100%;
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+  animation: glowTextColor 2s infinite;
+}
+
+.sidebar a {
+  width: 160px;
+  margin: 10px 0;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.sidebar a.active {
+  color: #00ff00;
+  border-color: #00ff00;
+  box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+}
+
+.sidebar a:hover {
+  transform: scale(1.05);
+  color: #00ff00;
+  border-color: #00ff00;
+  box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+}
+
+/* Sections */
+section {
+  margin-left: 200px;
+  padding: 80px 20px 50px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Profile */
+.profile-pic-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#profilePic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid #00ff00;
+  object-fit: cover;
+}
+
+#profilePic::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  border: 2px solid #00ff00;
+  animation: pulseGreen 2s infinite;
+  pointer-events: none;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+  animation: glowName 2s infinite;
+}
+
+.skills-box {
+  display: inline-block;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: white;
+  transition: 0.3s;
+}
+
+.skills-box:hover {
+  box-shadow: 0 0 20px #00ff00,0 0 30px #00ff00;
+}
+
+#skill-text {
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 20px #00ff00,0 0 30px #00ff00;
+  transition: 0.3s;
+}
+
+/* Boxes */
+.section-box {
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 700px;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.section-box:hover {
+  box-shadow:0 0 20px #00ff00,0 0 30px #00ff00;
+}
+
+.section-box h2 {
+  margin-bottom: 20px;
+  animation: pageHeadingGlow 2s infinite;
+}
+
+/* Certification */
+.cert-box {
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  max-width: 400px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.cert-box:hover {
+  box-shadow: 0 0 20px #00ff00,0 0 30px #00ff00;
+}
+
+.cert-img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Contact icons */
+.contact-icon img {
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+  animation: contactGlow 2s infinite;
+  filter: brightness(1);
+  border-radius: 10%;
+}
+
+.contact-icon img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+  box-shadow: 0 0 30px #00ff00, 0 0 50px #00ff00;
+}
+
+.contact-line {
+  width: 50px;
+  height: 3px;
+  background-color: #00ff00;
+  margin: 0 auto 20px auto;
+  border: none;
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+/* Animations */
+@keyframes twinkle { 0%,100% { opacity:0.8; } 50% { opacity:0.2; } }
+@keyframes pulseGreen { 0%,100% { box-shadow:0 0 5px #00ff00,0 0 10px #00ff00; } 50% { box-shadow:0 0 20px #00ff00,0 0 30px #00ff00; } }
+@keyframes glowName { 0%,100% { color:white; text-shadow:0 0 0px #00ff00; } 50% { color:#00ff00; text-shadow:0 0 20px #00ff00,0 0 30px #00ff00; } }
+@keyframes glowTextColor { 0%,100% { color:white; text-shadow:0 0 0px #00ff00; } 50% { color:#00ff00; text-shadow:0 0 20px #00ff00,0 0 30px #00ff00; } }
+@keyframes pageHeadingGlow { 0%,100% { color:white; text-shadow:0 0 0px #00ff00; } 50% { color:#00ff00; text-shadow:0 0 20px #00ff00,0 0 30px #00ff00; } }
+@keyframes contactGlow { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.5); } }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; justify-content: center; flex-wrap: wrap; padding: 10px; }
+  .sidebar h2 { width: 100%; margin-bottom: 10px; font-size: 18px; }
+  .sidebar a { width: auto; margin: 5px; padding: 8px 12px; font-size: 14px; }
+  section { margin-left: 0; padding-top: 120px; padding-left: 10px; padding-right: 10px; }
+  #profilePic { width: 150px; height: 150px; }
+  .profile-name { font-size: 20px; }
+  .skills-box { font-size: 16px; padding: 8px 15px; }
+  .section-box { width: 95%; }
+  .cert-box { width: 90%; }
+  .contact-icon img { width: 35px; height: 35px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>Masab Shakoor</h2>
+  <a href="#profile" id="link-profile">Profile</a>
+  <a href="#about" id="link-about">About Me</a>
+  <a href="#skills" id="link-skills">Skills</a>
+  <a href="#certification" id="link-certification">Certification</a>
+  <a href="#contact" id="link-contact">Contact</a>
+</div>
+
+<!-- Sections -->
+<section id="profile">
+  <div class="profile-pic-container">
+    <img id="profilePic" src="masab.jpeg" alt="Masab Shakoor">
+  </div>
+  <div class="profile-name">Masab Shakoor</div>
+  <div class="skills-box">
+    <span style="color:white;">Hello! I am </span>
+    <span id="skill-text">FSc Gratuated</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-box">
+    <h2>About Me</h2>
+    <p>
+      Hello! My name is Masab Shakoor and I am from Muzaffarabad, Azad Kashmir. 
+      I have completed my FSc Pre-Medical and I am also a Prompt Engineer. 
+      I possess basic computer skills, including MS Office applications such as Word, Excel, and PowerPoint. 
+      I have knowledge of basic networking and I can create portfolios. 
+      I also build AI agents and am continuously learning AI. 
+      I know Python and I am very passionate about the IT field.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-box">
+    <h2>My Skills</h2>
+    <p>Python Programming</p>
+    <p>Prompt Engineering</p>
+    <p>AI Agent Building</p>
+    <p>Basic Networking</p>
+    <p>Computer Operations</p>
+    <p>Portfolio Creation</p>
+    <p>IT Enthusiast</p>
+  </div>
+</section>
+
+<section id="certification">
+  <h2 id="cert-heading" style="margin-bottom:40px;">Certification</h2>
+
+  <div class="cert-box">
+    <img src="promt .jpeg" alt="Prompt Engineering" class="cert-img">
+    <h3>Prompt Engineering</h3>
+  </div>
+
+  <div class="cert-box">
+    <img src="networking.jpeg" alt="Basic Networking" class="cert-img">
+    <h3>Basic Networking</h3>
+  </div>
+
+  <div class="cert-box">
+    <img src="cyber.jpeg" alt="Introduction to Cyber Security" class="cert-img">
+    <h3>Introduction to Cyber Security</h3>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-box">
+    <h2>Contact</h2>
+    <hr class="contact-line">
+    <p>Phone: 03190858508</p>
+    <p style="margin-top:20px; display:flex; gap:20px; justify-content:center;">
+      <span class="contact-icon">
+        <a href="mailto:masab.shakoor90@gmail.com" target="_blank">
+          <img src="https://img.icons8.com/ios-glyphs/48/00ff00/new-post.png" alt="Email">
+        </a>
+      </span>
+      <span class="contact-icon">
+        <a href="https://wa.me/message/6IMH7FBKMCHVC1" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/25D366/whatsapp.png" alt="WhatsApp">
+        </a>
+      </span>
+      <span class="contact-icon">
+        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/0077B5/linkedin.png" alt="LinkedIn">
+        </a>
+      </span>
+      <span class="contact-icon">
+        <a href="https://www.facebook.com/share/1BiMkcaB1w/" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/1877F2/facebook.png" alt="Facebook">
+        </a>
+      </span>
+      <span class="contact-icon">
+        <a href="https://www.instagram.com/masab626462" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/C13584/instagram-new.png" alt="Instagram">
+        </a>
+      </span>
+    </p>
+  </div>
+</section>
+
+<script>
+// Glow animation for Certification heading
+const certHeading = document.getElementById('cert-heading');
+let glowOn = false;
+setInterval(() => {
+  glowOn = !glowOn;
+  if(glowOn){
+    certHeading.style.color = "#00ff00";
+    certHeading.style.textShadow = "0 0 20px #00ff00, 0 0 30px #00ff00";
+  } else {
+    certHeading.style.color = "white";
+    certHeading.style.textShadow = "none";
+  }
+}, 1000);
+
+// Scroll glow for sidebar links
+const sections = document.querySelectorAll("section");
+const sidebarLinks = {
+  profile: document.getElementById("link-profile"),
+  about: document.getElementById("link-about"),
+  skills: document.getElementById("link-skills"),
+  certification: document.getElementById("link-certification"),
+  contact: document.getElementById("link-contact")
+};
+
+const observerOptions = {
+  root: null,
+  rootMargin: '-150px 0px -150px 0px',
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const id = entry.target.getAttribute('id');
+    if(entry.isIntersecting){
+      Object.values(sidebarLinks).forEach(link => link.classList.remove('active'));
+      if(sidebarLinks[id]) sidebarLinks[id].classList.add('active');
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => observer.observe(section));
+
+// Skills changing text
+const skillTexts = ["Prompt Engineer","IT Enthusiast","Computer Operator","Networking Learner","AI Agent Builder","Python Programmer","FSc Gratuated"];
+let skillIndex = 0;
+const skillElement = document.getElementById('skill-text');
+setInterval(()=>{
+  skillElement.textContent = skillTexts[skillIndex];
+  skillElement.style.fontWeight = "bold";
+  skillElement.style.color = "#00ff00";
+  skillElement.style.textShadow = "0 0 20px #00ff00,0 0 30px #00ff00";
+  skillIndex = (skillIndex + 1) % skillTexts.length;
+},2000);
+
+// Stars
+const numberOfStars = 150;
+for(let i=0;i<numberOfStars;i++){
+  const star=document.createElement('div');
+  star.classList.add('star');
+  star.style.width=star.style.height=Math.random()*3+1+'px';
+  star.style.top=Math.random()*window.innerHeight+'px';
+  star.style.left=Math.random()*window.innerWidth+'px';
+  star.style.animationDuration=(Math.random()*3 + 1)+'s';
+  document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>
