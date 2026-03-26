@@ -236,7 +236,7 @@ section {
   <a href="#profile" id="link-profile">Profile</a>
   <a href="#about" id="link-about">About Me</a>
   <a href="#skills" id="link-skills">Skills</a>
-  <a href="#certification" id="link-certification">Certification</a>
+  <a href="#certifications" id="link-certification">Certification</a>
   <a href="#contact" id="link-contact">Contact</a>
 </div>
 
@@ -248,7 +248,7 @@ section {
   <div class="profile-name">Masab Shakoor</div>
   <div class="skills-box">
     <span style="color:white;">Hello! I am </span>
-    <span id="skill-text">FSc Gratuated</span>
+    <span id="skill-text">CS Studant</span>
   </div>
 </section>
 
@@ -256,30 +256,34 @@ section {
   <div class="section-box">
     <h2>About Me</h2>
     <p>
-      Hello! My name is Masab Shakoor and I am from Muzaffarabad, Azad Kashmir. 
-      I have completed my FSc Pre-Medical and I am also a Prompt Engineer. 
-      I possess basic computer skills, including MS Office applications such as Word, Excel, and PowerPoint. 
-      I have knowledge of basic networking and I can create portfolios. 
-      I also build AI agents and am continuously learning AI. 
-      I know Python and I am very passionate about the IT field.
-    </p>
+      Hello! My name is Masab Shakoor and I am from Muzaffarabad, Azad Kashmir.  I am a BS Computer Science student at Virtual University of Pakistan with a strong interest in Artificial Intelligence, Prompt Engineering, and Python development.
+
+I have completed an 8-month internship at Corvit Networks Muzaffarabad, where I gained hands-on experience in Artificial Intelligence, Python programming, basic networking, and portfolio website development. During this time, I also developed multiple small projects and improved my technical skills.
+
+In addition, I completed a 1-month web development training with Softgrow Development, where I worked on building and designing websites. I also completed a 1-month internship in Artificial Intelligence with Code Alpha, where I enhanced my understanding of AI concepts and practical applications.
+
+I am skilled in Python programming, Prompt Engineering, AI Agent development, MS Office, and computer operations. I am a motivated and fast learner who is always eager to explore new technologies and contribute to innovative IT projects.
   </div>
 </section>
 
 <section id="skills">
   <div class="section-box">
     <h2>My Skills</h2>
-    <p>Python Programming</p>
-    <p>Prompt Engineering</p>
-    <p>AI Agent Building</p>
-    <p>Basic Networking</p>
+    <p>Python Programming (Data Handling & Basic Projects)</p>
+    <p>Prompt Engineering (AI Prompt Design & Optimization)</p>
+    <p>AI Development (Basic AI Concepts & Applications)</p>
+    <p>AI Agent Development</p>
     <p>Computer Operations</p>
-    <p>Portfolio Creation</p>
-    <p>IT Enthusiast</p>
+    <p>Web Development (HTML, CSS – Basic Level)</p>
+    <p>Portfolio Website Development</p>
+    <p>Basic Networking</p>
+    <p>MS Office (Word, Excel, PowerPoint)</p>
+    <p>Computer Operations</p>
+    <p>YouTube Content Management</p>
   </div>
 </section>
 
-<section id="certification">
+<section id="certifications">
   <h2 id="cert-heading" style="margin-bottom:40px;">Certification</h2>
 
   <div class="cert-box">
@@ -292,6 +296,20 @@ section {
     <h3>Basic Networking</h3>
   </div>
 
+  <div class="cert-box">
+  <img src="soft.jpeg" alt="Soft skills training" class="cert-img">
+  <h3>Soft skills training</h3>
+</div>
+
+<div class="cert-box">
+  <img src="python.jpeg" alt="introduction to python for defensive security" class="cert-img">
+  <h3>introduction to python for defensive security</h3>
+</div>
+
+<div class="cert-box">
+  <img src="ai.jpeg" alt="Certified Artificial Intelligence Security and Risk(CAISR)" class="cert-img">
+  <h3>Certified Artificial Intelligence Security and Risk(CAISR)</h3>
+</div>
   <div class="cert-box">
     <img src="cyber.jpeg" alt="Introduction to Cyber Security" class="cert-img">
     <h3>Introduction to Cyber Security</h3>
@@ -377,7 +395,7 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 
 // Skills changing text
-const skillTexts = ["Prompt Engineer","IT Enthusiast","Computer Operator","Networking Learner","AI Agent Builder","Python Programmer","FSc Gratuated"];
+const skillTexts = ["Prompt Engineer","Tech Learner","Digital Content Creator","Frontend Developer ","IT Enthusiast","Computer Operator","IT Support Specialist ","AI Agent Builder","Python Programmer","CS Studant"];
 let skillIndex = 0;
 const skillElement = document.getElementById('skill-text');
 setInterval(()=>{
